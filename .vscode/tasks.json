@@ -1,0 +1,64 @@
+{
+    "version": "0.1.0",
+    "command": "explorer",    
+    "windows": {
+        "command": "explorer.exe"
+    },
+    "args": ["${file}"]
+}
+
+/*
+
+
+If you would like to have live reload you can use gulp-webserver, which will watch for your file changes and reload page, this way you don't have to press F5 every time on your page:
+
+Here is how to do it:
+
+    Open command prompt (cmd) and type
+
+    npm install --save-dev gulp-webserver
+
+    Enter Ctrl+Shift+P in VS Code and type Configure Task Runner. Select it and press enter. It will open tasks.json file for you. Remove everything from it end enter just following code
+
+tasks.json
+
+{
+    "version": "0.1.0",
+    "command": "gulp",
+    "isShellCommand": true,
+    "args": [
+        "--no-color"
+    ],
+    "tasks": [
+        {
+            "taskName": "webserver",
+            "isBuildCommand": true,
+            "showOutput": "always"
+        }
+    ]
+}
+
+    In the root directory of your project add gulpfile.js and enter following code:
+
+gulpfile.js
+
+var gulp = require('gulp'),
+    webserver = require('gulp-webserver');
+
+gulp.task('webserver', function () {
+    gulp.src('app')
+        .pipe(webserver({
+            livereload: true,
+            open: true
+        }));
+});
+
+    Now in VS Code enter Ctrl+Shift+P and type "Run Task" when you enter it you will see your task "webserver" selected and press enter.
+
+Your webserver now will open your page in your default browser. Now any changes that you will do to your HTML or CSS pages will be automatically reloaded.
+
+Here is an information on how to configure 'gulp-webserver' for instance port, and what page to load, ...
+
+You can also run your task just by entering Ctrl+P and type task webserver
+*/
+        
