@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+	<title>  AngularJS SPA App  </title>
+	
+</head>
+<body>
+<!-- Checking the angular directive is working or not --> 
+
+<!--  <div  > <label> Name: </label> <input data-ng-model="name" type="text" >	 {{ name }} <br /> </div> -->
+<div class="container" data-ng-init="customers=[{name:'John Smith', city:'london'}, {name:'Dan Wahlin' , city:'Karachi'},{name:'John Dan', city:'Phoenix'}]" >  
+
+ <!--  <div class="container"  data-ng-init="names=['jamil','riaz','salman','iftikhar']"> -->
+	 <label> Name: </label> <input data-ng-model="name" type="text" >	 {{ name }} <br /> 
+	 <!-- 
+	 <h3> Looping with ng-repeat Directive </h3> 
+	  -->
+		 <ul>
+			 <li data-ng-repeat="cust in customers | filter:name | orderBy:'name'"> {{ cust.name | uppercase }}  - {{ cust.city | lowercase }} </li> </ul>
+		 </ul>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="angular.min.js">  </script>
+</body>
+</html>
